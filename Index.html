@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pick your Phone!</title>
+  <link rel="icon" type="image/x-icon" href="ico.png">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+  </style>
+</head>
+<body>
+    <audio id="transitionSound" preload="auto">
+       <source src="TransSound.wav" type="audio/wav">
+       Your browser does not support the audio element.
+   </audio>
+    <audio id="phonewoosh" preload="auto">
+       <source src="phone_whoosh_effect.wav" type="audio/wav">
+       Your browser does not support the audio element.
+   </audio>
+<div class="phone-row">
+  <div class="phone-card" style="width:22%; min-width:150px;" id="card1">
+    <div class="phone-card__border"></div>
+    <div class="phone-card__bg"></div>
+    <img class="phone-card__img" src="phone1.png" alt="Nothing Phone 1">
+    <div class="phone-card__text">The original Nothing Phone. Es iste das better phone of alle time.</div> <!-- in the css its stored like this: .phone-card__text {position: absolute;top: 220px; /* below the card */left: 50%;transform: translateX(-50%);text-align: center;color: #FFFFFF;font-family: 'NFont', sans-serif;font-size: 14px;}-->
+  </div>
+
+  <div class="phone-card" style="width:22%; min-width:150px;" id="card2">
+    <div class="phone-card__border"></div>
+    <div class="phone-card__bg"></div>
+    <img class="phone-card__img" src="phone2.png" alt="Nothing Phone 2">
+    <div class="phone-card__text">Phone 2. Phone 1 revamped with more Glyph Zones, Features and FUN.</div>
+  </div>
+  <div class="phone-card" style="width:22%; min-width:150px;" id="card3">
+    <div class="phone-card__border"></div>
+    <div class="phone-card__bg"></div>
+    <img class="phone-card__img1" src="Nothing_2a.png" alt="Nothing Phone 2a">
+    <img class="phone-card__img2" src="phone2aplus.png" alt="Nothing Phone 2a Plus" >
+    <div class="phone-card__text">Phone 2a / 2a Plus. Budget - Midrange Phone, Nothing's Best Selling Phone. </div>
+  </div>
+  <div class="phone-card" style="width:22%; min-width:150px;" id="card3">
+    <div class="phone-card__border"></div>
+    <div class="phone-card__bg"></div>
+  <img class="phone-card__img1" src="phone3a.png" alt="Nothing Phone 3a">
+  <img class="phone-card__img2" src="phone3apro.png" alt="Nothing Phone 3a Pro">
+    <div class="phone-card__text">Phone 3a / 3a Pro. Midrange Phone with a Pro Version. First Nothing Phone with Telephoto Lens.</div>
+  </div>
+  <div class="phone-card" style="width:22%; min-width:150px;" id="card4">
+    <div class="phone-card__border"></div>
+    <div class="phone-card__bg"></div>
+    <img class="phone-card__img" src="phone3.png" alt="Nothing Phone 3">
+    <div class="phone-card__text">Phone 3. No Glyphs, but a 25x25 Circle Matrix Screen. Most hated Nothing Phone.</div>
+  </div>
+  <div class="phone-card" style="width:22%; min-width:150px;" id="card5">
+    <div class="phone-card__border"></div>
+    <div class="phone-card__bg"></div>
+    <img class="phone-card__imgWatch" src="WatchPro1.png" alt="CMF Watch Pro">
+    <div class="phone-card__imgWatchSquircle"></div>
+    <div class="phone-card__text">CMF Watch Pro. Who needs circles? This square runs your day better than your alarm ever did.</div>
+  </div>
+  <div class="phone-card" style="width:22%; min-width:150px;" id="card6">
+    <div class="phone-card__border"></div>
+    <div class="phone-card__bg"></div>
+    <img class="phone-card__imgWatch" src="WatchPro2.png" alt="CMF Watch Pro 2">
+    <div class="phone-card__imgWatchCircle"></div>
+    <div class="phone-card__text">CMF Watch Pro 2. Complete Redesign. Changeable Bezels, Circle Screen.</div>
+  </div>
+  <div class="phone-card" style="width:22%; min-width:150px;" id="card7">
+    <div class="phone-card__border"></div>
+    <div class="phone-card__bg"></div>
+    <img class="phone-card__imgWatch" src="WatchPro3.png" alt="CMF Watch Pro 3">
+    <div class="phone-card__imgWatchCircle3"></div>
+    <div class="phone-card__text">CMF Watch Pro 3</div>
+  </div>
+  <div class="phone-card" style="width:22%; min-width:150px;" id="card8">
+    <div class="phone-card__border"></div>
+    <div class="phone-card__bg"></div>
+    <img class="phone-card__imgBudLeft" src="LeftEarbud.png" alt="EarbudLeft">
+    <img class="phone-card__imgBudRight" src="RightEarbud.png" alt="EarbudRight">
+    <div class="phone-card__text">Ear Buds (There were too many to list and they're all the same)</div>
+  </div>
+<div class="transitionbox"></div>
+<div class="transitiontext">Phone2a</div>
+    <script>
+        // Hardcoded transition texts (map image sources to their text)
+        const transition_texts = {
+            "phone1.png": "Phone (1)",
+            "phone2.png": "Phone (2)",
+            "Nothing_2a.png": "Phone (2a)",
+            "phone3a.png": "Phone (3a)",
+            "phone3.png": "Phone (3)",
+            "WatchPro1.png": "Watch Pro",
+            "WatchPro2.png": "Watch Pro 2",
+            "WatchPro3.png": "Watch Pro 3",
+            "LeftEarbud.png": "Earbuds",
+        };
+
+        // Event listener for phone card clicks
+
+     function playSound(sound) {
+         try {
+             const Sound = document.getElementById(sound);
+             console.log('Attempting to play sound:', Sound);
+             if (Sound) {
+                 Sound.play();
+                 console.log('Sound played successfully.');
+             } else {
+                 console.error('Audio element not found.');
+             }
+         } catch (error) {
+             console.error('Error playing sound:', error);
+         }
+     }
+document.querySelectorAll('.phone-card').forEach(card => {
+    card.addEventListener('click', function() {
+        const img = this.querySelector('img');
+        const imageSrc = img.src.split('/').pop(); // Get filename from src
+
+        // Look up the text based on the image source
+        const transitionText = transition_texts[imageSrc] || "Default Transition Text";
+
+        // Show transition effect with hardcoded text
+        const transitionBox = document.querySelector('.transitionbox');
+        const transitionElement = document.querySelector('.transitiontext');
+        playSound("transitionSound");
+        transitionBox.style.opacity = "1";
+        transitionElement.textContent = transitionText;
+        transitionElement.style.opacity = "1";
+        transitionElement.style.color = "rgba(0, 0, 0, 0)";
+        transitionElement.style["letter-spacing"] = "1em";
+        setTimeout(() => {
+        window.location.href = 'http://localhost:2020/hehe';
+    }, 4000);
+    });
+});
+
+        // Scroll effect code (unchanged)
+        const speedRatio = 3;
+
+        window.addEventListener('scroll', function() {
+            let scrollY = window.pageYOffset;
+            let slowScrollY = scrollY / speedRatio;
+            document.body.style.backgroundPositionY = (-slowScrollY) + 'px';
+        });
+        function navigateAfterDelay() {
+    // Show loading screen (optional)
+    //document.querySelector('.loading-screen').style.opacity = '1';
+
+    // Set a timeout for 4 seconds before navigating
+    playSound();
+    setTimeout(() => {
+        window.location.href = 'http://localhost:2020/hehe';
+    }, 4000);
+}
+
+// Prevent multiple clicks during transition
+    let isNavigating = false;
+
+    document.querySelector('.transitiontext').addEventListener('click', function(e) {
+        if (!isNavigating) {
+            isNavigating = true;
+            playSound();
+            setTimeout(() => {
+                window.location.href = 'your-link-here';
+            }, 4000);
+        e.preventDefault();
+    }
+});
+    </script>
+</body>
+</html>

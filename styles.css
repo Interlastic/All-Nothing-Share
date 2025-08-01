@@ -1,0 +1,496 @@
+@font-face {
+  font-family: 'NFont';
+  src: url('nfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.custom-button {
+  font-family: 'NFont', sans-serif;
+  background: none;
+  border: none;
+  outline: none;
+  color: rgb(126, 126, 126);
+  cursor: pointer;
+  scale: 1;
+  transition: color 0.7s ease, scale 1s ease;
+  padding: 0px 0px;
+  margin: 10px;
+  font-size: 16px;
+  width: 120px;
+  height: 10px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.custom-button:hover {
+  color: #FFFFFF;
+}
+
+.custom-button:active {
+  scale: 0.8;
+  color: #d71921;
+}
+
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  transition: background-color 0.3s ease;
+  /* add rounded corners */
+  border-radius: 10%;
+}
+
+.hamburger:hover {
+  background-color: grey;
+}
+
+.OptionRectangle {
+    width: 175px;
+    height: 200px;
+    background-color: rgba(7, 7, 7, 0.5);/**/
+    border-radius: 8px 8px 8px 8px;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgb(8, 8, 8) 35%
+    );
+}
+
+.PImage {
+    transform: scale(1);
+    transition: all 0.6s ease;
+    transform-origin: center; /* Ensures rotation happens from the center */
+}
+
+.PImage:hover {
+    transform: rotate(10deg) scale(1.2) translate(0px, -40px); /* Rotates 30 degrees to the right and scales up */
+}
+
+.phone-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-start;   /* left-align, no centering */
+  padding: 160px 0 0 50px;       /* start 160px from top, 50px from left edge */
+}
+
+/* --- single card (normal flow) --- */
+.phone-card {
+  position: relative;            /* establish stacking context */
+  width: 175px;
+  height: 200px;
+  margin-top: 200px;
+}
+
+/* gradient rectangle, in front of the phone */
+.phone-card__bg {
+  padding-left: 30px;
+  width: 175px;
+  position: absolute;
+  inset: 0;
+  background: rgba(7,7,7,.5);
+  border-radius: 8px;
+  background-image: linear-gradient(to bottom,
+                                    rgba(0,0,0,0),
+                                    rgb(8,8,8) 35%);
+  z-index: 3;                    /* above the image */
+  transition: transform 0.2 ease;
+}
+
+/* red border rectangle */
+.phone-card__border {
+  padding-left: 27px;
+  width: 175px;
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgb(150, 0, 0);
+  border-radius: 8px;
+  transform: scale(1.01);
+  z-index: 1;                    /* topmost */
+  transition: border 0.4s ease;
+}
+
+.phone-card:hover .phone-card__border {
+  border: 2px solid rgb(255, 0, 0)
+}
+
+/* phone image, behind the rectangles */
+.phone-card__img {
+  padding-left: 30px;
+  position: absolute;
+  top: -80px;
+  left: 87.5px; /* center horizontally */
+  transform: translateX(-50%);
+  width: 100px;
+  transition: transform 0.6s cubic-bezier(1, -0.9, 0, 1);
+  z-index: 2;
+}
+
+.phone-card__img1 {
+  padding-left: 30px;
+  position: absolute;
+  top: -80px;
+  left: 50px; /* center horizontally */
+  transform: translateX(-50%);
+  width: 100px;
+  transition: transform 0.6s cubic-bezier(1, -0.9, 0, 1);
+  z-index: 2;
+}
+
+.phone-card__img2 {
+  padding-left: 30px;
+  position: absolute;
+  top: -80px;
+  left: 120px; /* center horizontally */
+  transform: translateX(-50%);
+  width: 100px;
+  transition: transform 0.6s cubic-bezier(1, -0.9, 0, 1);
+  z-index: 2;
+}
+
+.phone-card__imgWatch {
+  padding-left: 30px;
+  position: absolute;
+  top: -102px;
+  left: 12px; /* center horizontally */
+  width: 125px;
+  transform: translateY(0);
+  rotate: 0deg;
+  transition: transform 0.4s ease/* cubic-bezier(1, -0.9, 0, 1) */;
+  z-index: 2;
+}
+
+.phone-card:hover .phone-card__imgWatch {
+  transform: translateY(-40px); /* Slightly move up when hovered */
+}
+
+.phone-card__imgWatchCircle /* this circle hides the actual screen that is active, we will remove its opacity to "turn on" the watches screen */ {
+  position: absolute;
+  top: -66px;
+  left: 52px; /* center horizontally */
+  width: 100px;
+  height: 98px;
+  border-radius: 50%;
+  background-color: rgb(0, 0, 0); /* Screen off, radial gradient so we can have the hitbox be bigger, but still make the circle look as big as it should be. */
+  z-index: 2; /* above the watch image */
+  transition: transform 0.4s ease, background-color 0.3s ease 0.3s;
+}
+
+.phone-card__imgWatchCircle3 /* this circle hides the actual screen that is active, we will remove its opacity to "turn on" the watches screen */ {
+  position: absolute;
+  top: -63px;
+  left: 54px; /* center horizontally */
+  width: 99px;
+  height: 99px;
+  border-radius: 50%;
+  background-color: rgb(0, 0, 0); /* Screen off, radial gradient so we can have the hitbox be bigger, but still make the circle look as big as it should be. */
+  z-index: 2; /* above the watch image */
+  transition: transform 0.4s ease, background-color 0.3s ease 0.3s;
+}
+
+.phone-card:hover .phone-card__imgWatchCircle {
+  background-color: rgba(0, 0, 0, 0); /* Screen on */
+  transform: translateY(-40px); /* Slightly move up when screen is on */
+}
+
+.phone-card:hover .phone-card__imgWatchCircle3 {
+  background-color: rgba(0, 0, 0, 0); /* Screen on */
+  transform: translateY(-40px); /* Slightly move up when screen is on */
+}
+
+.phone-card__imgWatchSquircle /* this circle hides the actual screen that is active, we will remove its opacity to "turn on" the watches screen BUT this is the version for the watch pro 1 with a non circle screen.*/ {
+  position: absolute;
+  top: -75px;
+  left: 45px; /* center horizontally */
+  width: 116px;
+  height: 132px;
+  border-radius: 24%;
+  background-image: linear-gradient(to bottom,
+                                    rgb(0, 0, 0),
+                                    rgb(0, 0, 0) 10%);
+  z-index: 2; /* above the watch image */
+  opacity: 100;
+  transform: translateY(0);
+  transition: opacity 0.3s ease 0.3s, transform 0.4s ease;
+}
+
+.phone-card:hover .phone-card__imgWatchSquircle {
+  opacity: 0; /* Screen on */
+  transform: translateY(-30px); /* Slightly move up when screen is on */
+}
+
+/* Text that can be changed from html, telling about the phone (might not even be a phone LOL), and maybe a small bit of its history */
+.phone-card__text {
+  position: absolute;
+  top: 70px; /* below the card */
+  left: 108px;
+  width: 200px;
+  transform: translateX(-50%);
+  text-align: left;
+  color: #929292;
+  font-family: 'NFont', sans-serif;
+  font-size: 14px;
+  z-index: 4;
+  transform-origin: center;
+  transition: color 0.3s ease;
+}
+
+.phone-card:hover .phone-card__text {
+  color:#FFFFFF;
+}
+
+.phone-card:hover .phone-card__img {
+  transform: translateX(-50%) /* rotate(-10deg) */ scale(1.3) translate3D(-7px, -40px, 0px);
+}
+
+.phone-card:hover .phone-card__img1 {
+  transform: translateX(-50%) rotate(-10deg) scale(1.2) translateY(-40px);
+}
+
+.phone-card:hover .phone-card__img2 {
+  transform: translateX(-50%) rotate(10deg) scale(1.2) translateY(-40px);
+}
+
+.phone-card__imgBudLeft {
+  padding-left: 30px;
+  position: absolute;
+  top: -80px;
+  left: 45px; /* center horizontally */
+  transform: translateX(-50%);
+  width: 100px;
+  transition: transform 0.6s cubic-bezier(1, -0.9, 0, 1);
+  z-index: 2;
+}
+
+.phone-card__imgBudRight {
+  padding-left: 30px;
+  position: absolute;
+  top: -80px;
+  left: 115px; /* center horizontally */
+  transform: translateX(-50%);
+  width: 100px;
+  transition: transform 0.6s cubic-bezier(1, -0.9, 0, 1);
+  z-index: 2;
+}
+
+.phone-card:hover .phone-card__imgBudLeft {
+  animation: budsLeft 0.75s forwards infinite ease-out;
+}
+
+/*.phone-card:not(:hover) .phone-card__imgBudLeft {
+  animation: budsLeftReverse 0.5s forwards;
+}*/
+
+.phone-card:hover .phone-card__imgBudRight {
+  animation: budsRight 0.75s forwards infinite ease-out;
+}
+
+@keyframes budsLeft {
+  0% { transform: translate3D(-60px, 0px, 0px); rotate: 3deg; width: 102.5px;}
+  50% { transform: translate3D(-80px, 0px, 0px); rotate: -3deg; width: 97.5px; }
+  100% { transform: translate3D(-60px, 0px, 0px); rotate: 3deg; width: 102.5px; }
+}
+
+@keyframes budsRight {
+  0% { transform: translate3D(-60px, 0px, 0px); rotate: -3deg; width: 97.5px;}
+  50% { transform: translate3D(-80px, 0px, 0px); rotate: 3deg; width: 102.5px;}
+  100% { transform: translate3D(-60px, 0px, 0px); rotate: -3deg; width: 97.5px;}
+}
+
+/* Phone Images Border Background Overlap when screen is under ~950 px so lets add a minimum distance between them */
+@media (max-width: 950px) {
+  .phone-card {
+    margin-left: 20px; /* add left margin for spacing */
+  } 
+  
+  .phone-card__img {
+    top: -60px; /* adjust image position */
+    left: 77.5px; /* adjust image position */
+    width: 80px; /* smaller image for smaller screens */
+  }
+
+  .phone-card__img2 {
+    top: -60px; /* adjust image position */
+    left: 110px; /* adjust image position */
+    width: 80px; /* smaller image for smaller screens */
+  }
+  
+  .phone-card__img1 {
+    top: -60px; /* adjust image position */
+    left: 37px; /* adjust image position */
+    width: 80px; /* smaller image for smaller screens */
+  }
+
+  .phone-card__bg, .phone-card__border {
+    width: 150px; /* smaller background and border */
+  }
+
+  .phone-card__text {
+    left: 95px; /* adjust text position */
+    width: 170px;
+  }
+
+  .phone-card__imgWatch {
+    top: -60px; /* adjust image position */
+    left: 10px; /* adjust image position */
+    width: 100px; /* smaller image for smaller screens */
+  }
+
+  .phone-card__imgWatchSquircle {
+    top: -38px;
+    left: 45px;
+    width: 89px;
+    height: 105px;
+  }
+
+  .phone-card__imgWatchCircle {
+    width: 81px;
+    height: 81px;
+    top: -33px;
+    left: 50px;
+  }
+
+  .phone-card__imgWatchCircle3 {
+    width: 81px;
+    height: 81px;
+    top: -29px;
+    left: 49px;
+  }
+
+  .phone-card__imgBudRight {
+    top: -80px;
+    left: 110px; /* center horizontally */
+  }
+
+  .phone-card__imgBudLeft {
+    top: -80px;
+    left: 35px; /* center horizontally */
+  }
+} 
+
+.loading-screen {
+  color: #ffffff00;
+  width: 10000000px;
+  height: 1000000px;
+}
+
+@media (min-width: 1600px) {
+
+  .phone-card {
+    margin-top: 250px;
+  }
+  
+  .phone-card__img {
+    top: -112.5px; 
+    left: 112.5px; 
+    width: 140px;
+  }  
+  .phone-card__img1 {
+    top: -112.5px; 
+    left: 70px; 
+    width: 140px;
+  }  
+  .phone-card__img2 {
+    top: -112.5px; 
+    left: 150.5px; 
+    width: 140px;
+  }
+  
+  .phone-card__bg, .phone-card__border {
+    width: 225px; 
+  }
+
+  .phone-card__text {
+    left: 120px; 
+    width: 220px; 
+    font-size: 16px;
+  }
+  .phone-card__imgWatch {
+    top: -103px; 
+    left: 17px; 
+    width: 150px; 
+  }
+
+  .phone-card__imgWatchSquircle {
+    top: -70px;
+    left: 52px;
+    width: 135px;
+    height: 138px;
+  }
+
+  .phone-card__imgWatchCircle {
+    width: 120px;
+    height: 120px;
+    top: -60px;
+    left: 60px;
+  }
+
+  .phone-card__imgWatchCircle3 {
+    width: 120px;
+    height: 120px;
+    top: -56px;
+    left: 61px;
+  }
+} 
+
+
+body {
+      margin: 0;
+      padding: 0;
+      scrollbar-color: red;
+      background-color: black;
+      background-image: url(background.png);
+      background-attachment: fixed;
+      height: 200vh;
+    }
+
+.transitionbox { /* This is too slowly hide the screen when you clicked on a phone. shall take up 100% of screen width */
+   position: fixed; /* This makes it stick to the viewport */
+   top: 0;
+   left: 0; 
+   width: 100vw;
+   height: 100vh;
+   color: black;
+   background-color: black;
+   z-index: 10;
+   opacity: 0;
+   pointer-events: none;
+   transition: opacity 1.4s cubic-bezier(0, 0.68, 0.9, 1.0);
+}
+
+.transitiontext {
+    position: fixed;
+    top: 50vh;
+    left: 50%;
+    width: 200vh;
+    height: 500px;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'NFont', sans-serif;
+    z-index: 15;
+    transform-origin: left;
+    opacity: 0;
+    font-size: 70px;
+    line-height: 0.9;
+    pointer-events: none;
+    transform: translate(-50%);
+    transition:
+        opacity 0.7s ease,
+        letter-spacing 4.2s cubic-bezier(0, 0.2, 0.58, 1.0),
+        color 2s ease 1.4s;
+    cursor: pointer; /* Add this to show hand cursor on hover */
+}
+
+.transitiontext:active {
+    pointer-events: all;
+}
+
+.transitionbox:active {
+    pointer-events: all;
+}
