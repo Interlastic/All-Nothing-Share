@@ -24,11 +24,10 @@ Whether you're customizing your Phone or just want a central place to drop cool 
 ## 🛠 Features (planned or live)
 
 - Upload/download system  
-- Community-driven categories  
-- Ringtone preview  
-- EQ sharing compatibility  
-- Ask & answer questions  
-- Nothing-inspired UI (dark + transparent touches)
+- Ringtones
+- Apps
+- Ringtone converter (E.g. 2a -> 3)
+- Good Mobile Interface (it's not good rn)
 
 ---
 
