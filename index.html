@@ -130,7 +130,9 @@ document.querySelectorAll('.phone-card').forEach(card => {
         transitionElement.style.color = "rgba(0, 0, 0, 0)";
         transitionElement.style["letter-spacing"] = "1em";
         setTimeout(() => {
-        window.location.href = 'http://localhost:2020/hehe';
+        window.location.href = transitionText.replace(/\s+/g, "")  // remove spaces
+                                       .replace(/\(/g, "")   // remove (
+                                       .replace(/\)/g, "");  // remove );
     }, 4000);
     });
 });
@@ -150,9 +152,11 @@ document.querySelectorAll('.phone-card').forEach(card => {
     // Set a timeout for 4 seconds before navigating
     playSound();
     setTimeout(() => {
-        window.location.href = 'http://localhost:2020/hehe';
+        window.location.href = transitionText.replace(/\s+/g, "")  // remove spaces
+                                       .replace(/\(/g, "")   // remove (
+                                       .replace(/\)/g, "");  // remove )
     }, 4000);
-}
+} 
 
 // Prevent multiple clicks during transition
     let isNavigating = false;
