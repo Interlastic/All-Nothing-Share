@@ -1,5 +1,8 @@
 from flask import Flask, send_from_directory, jsonify
 import os
+from flask import Response
+import json
+import time
 
 app = Flask(__name__)
 
@@ -61,8 +64,13 @@ items = [
 ]
 
 @app.route('/items')
-def get_items():
-    return jsonify(items)
+def stream_items():
+    def generate():
+        for item in items:
+            yield json.dumps(item) + '\n'  # JSON line
+            time.sleep(0.09)  # optional: slow down to simulate streaming
+    return Response(generate(), mimetype='application/x-ndjson')
+
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    app.run(host='0.0.0.0', port=5000, debug=True)
