@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="transitionbox" style="opacity: 100;"></div>
   <div id="root"></div>
 
   <!-- React and ReactDOM CDN -->
@@ -20,53 +21,72 @@
     function ItemsList() {
       const [items, setItems] = useState([]);
 
-			useEffect(() => {
-				fetch('/items')
-					.then(response => {
-						const reader = response.body.getReader();
-						const decoder = new TextDecoder();
-						let buffer = '';
+      useEffect(() => {
+        fetch('/items')
+          .then(response => {
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let buffer = '';
 
-						function read() {
-							reader.read().then(({ done, value }) => {
-								if (done) return;
+            function read() {
+              reader.read().then(({ done, value }) => {
+                if (done) return;
 
-								buffer += decoder.decode(value, { stream: true });
+                buffer += decoder.decode(value, { stream: true });
 
-								let lines = buffer.split('\n');
-								buffer = lines.pop(); // last line may be incomplete
+                let lines = buffer.split('\n');
+                buffer = lines.pop(); // last line may be incomplete
 
-								lines.forEach(line => {
-									if (line.trim()) {
-										try {
-											const item = JSON.parse(line);
-											setItems(prev => [...prev, item]);
-										} catch (e) {
-											console.error('Invalid JSON line:', line);
-										}
-									}
-								});
+                lines.forEach(line => {
+                  if (line.trim()) {
+                    try {
+                      const item = JSON.parse(line);
+                      setItems(prev => [...prev, item]);
+                    } catch (e) {
+                      console.error('Invalid JSON line:', line);
+                    }
+                  }
+                });
 
-								read();
-							});
-						}
+                read();
+              });
+            }
 
-						read();
-					})
-					.catch(console.error);
-			}, []);
-
+            read();
+          })
+          .catch(console.error);
+      }, []);
 
       return React.createElement(
         'div',
-        { className: 'item-container' },  // <-- container div here
+        { className: 'item-container' },
         items.map(item =>
           React.createElement(
             'div',
             { key: item.id, className: 'item-card' },
-            React.createElement('h3', null, item.name),
-            React.createElement('p', null, 'Type: ' + item.type),
-            React.createElement('p', null, item.description)
+            React.createElement(
+              'h3',
+              { 
+                className: 'item-text',
+                style: { 
+                  fontFamily: 'NFont, sans-serif', 
+                  fontSize: '30px', 
+                  color: '#FFFFFF', 
+                  textAlign: 'center' 
+                } 
+              }, 
+              item.name
+            ),
+            React.createElement(
+              'p',
+              { className: 'item-type' },
+              'Type: ' + item.type
+            ),
+            React.createElement(
+              'p',
+              { className: 'item-desc' },
+              item.description
+            )
           )
         )
       );
@@ -83,6 +103,15 @@
       let slowScrollY = scrollY / speedRatio;
       document.body.style.backgroundPositionY = -slowScrollY + 'px';
     });
+
+    //when all loaded, hide transitionbox
+    document.addEventListener('DOMContentLoaded', () => {
+    const boxes = document.querySelectorAll('.transitionbox');
+    boxes.forEach(box => {
+      box.style.opacity = '0';
+    });
+  });
+
   </script>
 </body>
 </html>

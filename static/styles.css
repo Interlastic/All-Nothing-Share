@@ -458,7 +458,7 @@ body {
    height: 100vh;
    color: black;
    background-color: black;
-   z-index: 10;
+   z-index: 9999999;
    opacity: 0;
    pointer-events: none;
    transition: opacity 1.4s cubic-bezier(0, 0.68, 0.9, 1.0);
@@ -473,7 +473,7 @@ body {
     text-align: center;
     color: #ffffff;
     font-family: 'NFont', sans-serif;
-    z-index: 15;
+    z-index: 10000000;
     transform-origin: left;
     opacity: 0;
     font-size: 70px;
@@ -499,11 +499,13 @@ body {
   position: relative;
   z-index: 1000;
   padding: 10px;
+  background-image: linear-gradient(to bottom right, #ff00002f, #ff00aa65);
   border: 1px solid #ccc;
   color: white;
   width: 400px;
   height: 500px;
   margin-top: 20px;
+  border-radius: 10px;;
   /* add a transition thingi so that when the card loads, it does a small pop up effect */
   transform: scale(1);
   transition: transform 0.2s;
@@ -513,6 +515,10 @@ body {
 
 .item-card {
   animation: pop 0.2s forwards;
+}
+
+.item-card:hover {
+  transform: scale(1.55);
 }
 
 @keyframes pop {
