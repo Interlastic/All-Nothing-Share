@@ -1,23 +1,23 @@
-{"id": 0, "type": "app", "name": "Glyphify v3", "description": "By Fr4nKB - Advanced Glyph controls for notifications including an automatic music to Glyph composer. Supports Glyph Matrix on Phone (3)."}
-{"id": 1, "type": "app", "name": "SmartGlyph", "description": "By Experion Labs - Advanced Glyph notification control including Glyph Timer for Phone (1). Supports Glyph Matrix on Phone (3)."}
-{"id": 2, "type": "app", "name": "blockit", "description": "By Mirko_ddd - A tech detox phone blocking app with Glyph integration."}
-{"id": 3, "type": "app", "name": "Glyph Notifications", "description": "By GlyphLab - Advanced customisation for Glyph notifications."}
-{"id": 4, "type": "app", "name": "Simone", "description": "By RapidZapper - The classic memory game recreated with the Glyph interface."}
-{"id": 5, "type": "app", "name": "Glyph Compass", "description": "By JayKayCooperations - Use your Glyph interface as a compass."}
-{"id": 6, "type": "app", "name": "Noting", "description": "By Hearthborn - A Nothing styled notes and tasks app with cloud backup."}
-{"id": 7, "type": "app", "name": "nNotes", "description": "By Bhavuk Verma - An open source Nothing OS style notes app."}
-{"id": 8, "type": "app", "name": "Notes", "description": "By monospace - A Nothing styled notes app with built-in security."}
-{"id": 9, "type": "app", "name": "Dothing", "description": "By FirstYogi - A minimalist tasks app with cloud backup."}
-{"id": 10, "type": "app", "name": "No Things To Do List", "description": "By Martin Diermayr - A Nothing inspired task/to-do app and widget with customisable reminders."}
-{"id": 11, "type": "app", "name": "NoVolume", "description": "By NoAppsStudio - A fully customisable volume slider with Nothing aesthetic."}
-{"id": 12, "type": "app", "name": "NoCalendar", "description": "By NoAppsStudio - A calendar app inspired by Nothing design, with Google Calendar sync."}
-{"id": 13, "type": "app", "name": "N Dial", "description": "By Hearthborn - A Nothing styled phone dialer and contacts app."}
-{"id": 14, "type": "app", "name": "N Calc", "description": "By Hearthborn - A calculator with custom themes, including Nothing style."}
-{"id": 15, "type": "app", "name": "Battery Health", "description": "By monospace - A battery health monitoring app with design inspired by Nothing apps."}
-{"id": 16, "type": "app", "name": "Nothing Clock", "description": "By Sasha Chverenko - A Nothing style world clock, timer and stopwatch app."}
-{"id": 17, "type": "app", "name": "Noid", "description": "By TechSip Studios - A Nothing styled file management app."}
-{"id": 18, "type": "app", "name": "MissingCore Music", "description": "By MissingCore - A Nothing OS inspired, open source offline/local music player app."}
-{"id": 19, "type": "app", "name": "Widgets Pro", "description": "By Preethamkmr3 - Additional widgets inspired by Nothing design language."}
-{"id": 20, "type": "app", "name": "NothingLand", "description": "By TheGlitchh - An iOS style Dynamic Island for Nothing OS."}
-{"id": 21, "type": "app", "name": "Nothing News", "description": "By Mirko_ddd - All of the latest news from the Nothing community."}
-{"id": 22, "type": "app", "name": "Dot Battery", "description": "By RapidZapper - A live battery level wallpaper inspired by Nothing dot design language."}
+{"id": 0, "type": "app", "name": "Glyphify v3", "description": "By Fr4nKB - Advanced Glyph controls for notifications including an automatic music to Glyph composer. Supports Glyph Matrix on Phone (3).", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 1, "type": "app", "name": "SmartGlyph", "description": "By Experion Labs - Advanced Glyph notification control including Glyph Timer for Phone (1). Supports Glyph Matrix on Phone (3).", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 2, "type": "app", "name": "blockit", "description": "By Mirko_ddd - A tech detox phone blocking app with Glyph integration.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 3, "type": "app", "name": "Glyph Notifications", "description": "By GlyphLab - Advanced customisation for Glyph notifications.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 4, "type": "app", "name": "Simone", "description": "By RapidZapper - The classic memory game recreated with the Glyph interface.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 5, "type": "app", "name": "Glyph Compass", "description": "By JayKayCooperations - Use your Glyph interface as a compass.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 6, "type": "app", "name": "Noting", "description": "By Hearthborn - A Nothing styled notes and tasks app with cloud backup.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 7, "type": "app", "name": "nNotes", "description": "By Bhavuk Verma - An open source Nothing OS style notes app.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 8, "type": "app", "name": "Notes", "description": "By monospace - A Nothing styled notes app with built-in security.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 9, "type": "app", "name": "Dothing", "description": "By FirstYogi - A minimalist tasks app with cloud backup.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 10, "type": "app", "name": "No Things To Do List", "description": "By Martin Diermayr - A Nothing inspired task/to-do app and widget with customisable reminders.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 11, "type": "app", "name": "NoVolume", "description": "By NoAppsStudio - A fully customisable volume slider with Nothing aesthetic.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 12, "type": "app", "name": "NoCalendar", "description": "By NoAppsStudio - A calendar app inspired by Nothing design, with Google Calendar sync.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 13, "type": "app", "name": "N Dial", "description": "By Hearthborn - A Nothing styled phone dialer and contacts app.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 14, "type": "app", "name": "N Calc", "description": "By Hearthborn - A calculator with custom themes, including Nothing style.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 15, "type": "app", "name": "Battery Health", "description": "By monospace - A battery health monitoring app with design inspired by Nothing apps.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 16, "type": "app", "name": "Nothing Clock", "description": "By Sasha Chverenko - A Nothing style world clock, timer and stopwatch app.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 17, "type": "app", "name": "Noid", "description": "By TechSip Studios - A Nothing styled file management app.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 18, "type": "app", "name": "MissingCore Music", "description": "By MissingCore - A Nothing OS inspired, open source offline/local music player app.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 19, "type": "app", "name": "Widgets Pro", "description": "By Preethamkmr3 - Additional widgets inspired by Nothing design language.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 20, "type": "app", "name": "NothingLand", "description": "By TheGlitchh - An iOS style Dynamic Island for Nothing OS.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 21, "type": "app", "name": "Nothing News", "description": "By Mirko_ddd - All of the latest news from the Nothing community.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}
+{"id": 22, "type": "app", "name": "Dot Battery", "description": "By RapidZapper - A live battery level wallpaper inspired by Nothing dot design language.", "supports": ["Phone1", "Phone2", "Phone2a", "Phone3a", "Phone3"]}

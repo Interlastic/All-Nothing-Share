@@ -10,18 +10,18 @@
 <body>
   <div class="transitionbox" style="opacity: 100;"></div>
   <div class="top-bar"></div>
-  <div class="top-bar-home" onclick="transitionBoxActivate()">
+  <div class="top-bar-home" onclick="transitionBoxActivate('/')">
     <div class="top-bar-home-text"><-HOME</div>
   </div>
   <div class="top-bar-dropdown">
- <div class="top-bar-dropdown-text">Phone 1</div>
- <div class="dropdown-content">
-   <a href="/Phone2">Phone 2</a>
-   <a href="/Phone2a">Phone 2a</a>
-   <a href="/Phone3a">Phone 3a</a>
-   <a href="/Phone3">Phone 3</a>
-   <a href="/">Other Devices...</a>
- </div>
+ <div class="top-bar-dropdown-text">{{PHONE_NAME}}</div>
+  <div class="dropdown-content">
+  <a href="#" onclick="transitionBoxActivate('{{OTHERPHONE1_HREF}}')">{{OTHER_PHONE1}}</a>
+  <a href="#" onclick="transitionBoxActivate('{{OTHERPHONE2_HREF}}')">{{OTHER_PHONE2}}</a>
+  <a href="#" onclick="transitionBoxActivate('{{OTHERPHONE3_HREF}}')">{{OTHER_PHONE3}}</a>
+  <a href="#" onclick="transitionBoxActivate('{{OTHERPHONE4_HREF}}')">{{OTHER_PHONE4}}</a>
+  <a href="#" onclick="transitionBoxActivate('/')">Other Devices...</a>
+  </div>
 </div>
   
 
@@ -127,15 +127,16 @@
     });
   });
 
-function transitionBoxActivate() {
+function transitionBoxActivate(link) {
  const boxes = document.querySelectorAll('.transitionbox');
  boxes.forEach(box => {
    box.style.opacity = '1';
+   box.style.transition = 'opacity 0.6s ease-in-out';
  });
  
  setTimeout(() => {
-   window.location.href = '/';
- }, 1400);
+   window.location.href = link;
+ }, 600);
 }
   </script>
 </body>
