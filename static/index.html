@@ -80,7 +80,7 @@
     <img class="phone-card__imgBudRight" src="RightEarbud.png" alt="EarbudRight">
     <div class="phone-card__text">Ear Buds (There were too many to list and they're all the same)</div>
   </div>
-<div class="transitionbox"></div>
+<div class="transitionbox" style="opacity: 1;"></div>
 <div class="transitiontext">Phone2a</div>
     <script>
         // Hardcoded transition texts (map image sources to their text)
@@ -171,6 +171,12 @@ document.querySelectorAll('.phone-card').forEach(card => {
         e.preventDefault();
     }
 });
+    document.addEventListener('DOMContentLoaded', () => {
+    const boxes = document.querySelectorAll('.transitionbox');
+    boxes.forEach(box => {
+      box.style.opacity = '0';
+    });
+  });
     </script>
 </body>
 </html>

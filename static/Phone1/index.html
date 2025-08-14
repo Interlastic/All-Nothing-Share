@@ -9,8 +9,13 @@
 </head>
 <body>
   <div class="transitionbox" style="opacity: 100;"></div>
-  <div id="root"></div>
+  <div class="top-bar"></div>
+  <div class="top-bar-home" onclick="transitionBoxActivate()">
+    <div class="top-bar-home-text"><-HOME</div>
+  </div>
+  
 
+  <div id="root"></div>
   <!-- React and ReactDOM CDN -->
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
@@ -112,6 +117,16 @@
     });
   });
 
+function transitionBoxActivate() {
+ const boxes = document.querySelectorAll('.transitionbox');
+ boxes.forEach(box => {
+   box.style.opacity = '1';
+ });
+ 
+ setTimeout(() => {
+   window.location.href = '/';
+ }, 1400);
+}
   </script>
 </body>
 </html>
