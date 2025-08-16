@@ -133,7 +133,7 @@ document.querySelectorAll('.phone-card').forEach(card => {
         window.location.href = transitionText.replace(/\s+/g, "")  // remove spaces
                                        .replace(/\(/g, "")   // remove (
                                        .replace(/\)/g, "");  // remove );
-    }, 4000);
+    }, 1900);
     });
 });
 
@@ -166,7 +166,7 @@ document.querySelectorAll('.phone-card').forEach(card => {
             isNavigating = true;
             playSound();
             setTimeout(() => {
-                window.location.href = 'your-link-here';
+                window.location.href = 'link-here';
             }, 4000);
         e.preventDefault();
     }

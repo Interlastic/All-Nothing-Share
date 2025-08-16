@@ -450,7 +450,6 @@ body {
       background-color: black;
       background-image: url(background.png);
       background-attachment: fixed;
-      height: 200vh;
     }
 
 .transitionbox { /* This is too slowly hide the screen when you clicked on a phone. shall take up 100% of screen width */
@@ -484,10 +483,9 @@ body {
     pointer-events: none;
     transform: translate(-50%);
     transition:
-        opacity 0.7s ease,
-        letter-spacing 4.2s cubic-bezier(0, 0.2, 0.58, 1.0),
-        color 2s ease 1.4s;
-    cursor: pointer; /* Add this to show hand cursor on hover */
+        opacity 0.2s ease,
+        letter-spacing 2s cubic-bezier(0, 0.2, 0.58, 1.0),
+        color 1.2s ease 0.7s;
 }
 
 .transitiontext:active {
@@ -549,9 +547,10 @@ body {
   height: 70px;
   top: -10px;
   position: fixed;
-  background-image: linear-gradient(to bottom, rgb(202, 18, 18), rgba(201, 18, 18, 0.637));
+  background-image: linear-gradient(to bottom, rgba(202, 18, 18, 0.062), rgba(201, 18, 18, 0.61));
   z-index: 99999;
   border-radius: 10px;
+  backdrop-filter: blur(10px);
 }
 
 .top-bar-home {
@@ -635,7 +634,8 @@ body {
  position: absolute;
  top: 45px;
  right: 0;
- background-color: black;
+ background-color: rgba(0, 0, 0, 0);
+ backdrop-filter: blur(10px);
  min-width: 100px;
  border-radius: 10px;
  border: 2px solid #929292;
