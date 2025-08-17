@@ -171,12 +171,13 @@ document.querySelectorAll('.phone-card').forEach(card => {
         e.preventDefault();
     }
 });
-    document.addEventListener('DOMContentLoaded', () => {
-    const boxes = document.querySelectorAll('.transitionbox');
-    boxes.forEach(box => {
-      box.style.opacity = '0';
-    });
+window.onload = () => {
+  const boxes = document.querySelectorAll('.transitionbox');
+  boxes.forEach(box => {
+    box.style.opacity = '0';
   });
+};
+S
     </script>
 </body>
 </html>
