@@ -519,6 +519,48 @@ body {
   animation: pop 0.2s forwards;
 }
 
+.item-image {
+  min-width: 30%;
+  min-height: 30%;
+  max-width: 100%;
+  max-height: 100%; /* or whatever height fits your card */
+  width: auto;
+  height: auto;
+  object-fit: contain; 
+  display: block;
+  margin: 0 auto; /* centers the image horizontally */
+  /* to make it look better, lets scale down a tiny bit */
+  transform: scale(0.80);
+  border-radius: 10%;
+}
+
+.item-support {
+  font-size: 20px;
+  line-height: 40px;
+  font-family: 'Nfont', sans-serif;
+}
+
+.item-support-current {
+  font-size: 24px;
+  line-height: 40px;
+  font-family: 'Nfont', sans-serif;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    color: white;
+  }
+  50% {
+    color: rgb(134, 134, 134);
+  }
+  100% {
+    color: white;
+  }
+  
+}
+
+
 .item-card:hover {
   transform: scale(1.55);
 }

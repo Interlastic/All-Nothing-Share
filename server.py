@@ -56,7 +56,8 @@ def serve_phone(phone_id):
     phone_data = get_phone_data(phone_id)  # ur function to get data
     
     html = template.replace('{{PHONE_NAME}}', phone_data['name'])
-    
+    html = html.replace('{{PHONE_NAMENOSPACE}}', phone_data['name'].replace(' ', ''))
+
     #  Now we replace everything for otherphone
     for i in range(1, 5):
         other_phone_key = f'otherphone{i}'

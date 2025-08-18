@@ -101,11 +101,34 @@
               'p',
               { className: 'item-desc' },
               item.description
+            ),
+            // Now uuuuhhh lets add what devices the app supports.
+            React.createElement(
+              'p',
+              { className: 'item-supports' },
+              React.createElement(
+              'span',
+              null,
+              'Supports: ',
+              React.createElement('br')
+              ),
+              ...item.supports.map((support, idx) =>
+              React.createElement(
+                'strong',
+                { 
+                key: idx, 
+                className: support === '{{PHONE_NAMENOSPACE}}' ? 'item-support-current' : 'item-support'
+                },
+                support,
+                idx < item.supports.length - 1 ? React.createElement('span', null, '', React.createElement('br')) : ''
+              ),
+              )
             )
           )
-        )
-      );
+          )
+        );
     }
+    console.log('Current Phone: {{PHONE_NAME}}')
 
     ReactDOM.createRoot(document.getElementById('root')).render(
       React.createElement(ItemsList)
