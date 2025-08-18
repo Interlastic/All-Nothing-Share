@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <div class="wrapper">
   <div class="transitionbox" style="opacity: 100;"></div>
   <div class="top-bar"></div>
   <div class="top-bar-home" onclick="transitionBoxActivate('/')">
@@ -23,9 +24,22 @@
   <a href="#" onclick="transitionBoxActivate('/')">Other Devices...</a>
   </div>
 </div>
-  
-
+ <div class="sidebar">
+  <div class="sidebar-arrow"></div>
+  <div class="sidebar-content">
+    <div class="sidebar-select" data-hash="#App">
+      <div class="sidebar-select-text">Apps</div>
+    </div>
+    <div class="sidebar-select" style="top: 34.25%;" data-hash="#Ringtone">
+      <div class="sidebar-select-text">Ringtones</div>
+    </div>
+    <div class="sidebar-select" style="top: 68.5%;" data-hash="#Wallpaper">
+      <div class="sidebar-select-text">Wallpapers</div>
+    </div>
+  </div>
+  </div>
   <div id="root"></div>
+  </div>
   <!-- React and ReactDOM CDN -->
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
@@ -72,61 +86,65 @@
           .catch(console.error);
       }, []);
 
+      console.log('Rendering ItemsList, items:', items);
+
       return React.createElement(
         'div',
         { className: 'item-container' },
-        items.map(item =>
+        items.map(item => {
+          console.log('Rendering item:', item);
+          return React.createElement(
+        'div',
+        { key: item.id, className: 'item-card', id: item.type },
+        React.createElement(
+          'h3',
+          { 
+            className: 'item-text',
+            style: { 
+          fontFamily: 'NFont, sans-serif', 
+          fontSize: '30px', 
+          color: '#FFFFFF', 
+          textAlign: 'center' 
+            } 
+          }, 
+          item.name
+        ),
+        React.createElement(
+          'p',
+          { className: 'item-type' },
+          'Type: ' + item.type
+        ),
+        React.createElement(
+          'p',
+          { className: 'item-desc' },
+          item.description
+        ),
+        // Now uuuuhhh lets add what devices the app supports.
+        React.createElement(
+          'p',
+          { className: 'item-supports' },
           React.createElement(
-            'div',
-            { key: item.id, className: 'item-card' },
-            React.createElement(
-              'h3',
-              { 
-                className: 'item-text',
-                style: { 
-                  fontFamily: 'NFont, sans-serif', 
-                  fontSize: '30px', 
-                  color: '#FFFFFF', 
-                  textAlign: 'center' 
-                } 
-              }, 
-              item.name
-            ),
-            React.createElement(
-              'p',
-              { className: 'item-type' },
-              'Type: ' + item.type
-            ),
-            React.createElement(
-              'p',
-              { className: 'item-desc' },
-              item.description
-            ),
-            // Now uuuuhhh lets add what devices the app supports.
-            React.createElement(
-              'p',
-              { className: 'item-supports' },
-              React.createElement(
-              'span',
-              null,
-              'Supports: ',
-              React.createElement('br')
-              ),
-              ...item.supports.map((support, idx) =>
-              React.createElement(
-                'strong',
-                { 
-                key: idx, 
-                className: support === '{{PHONE_NAMENOSPACE}}' ? 'item-support-current' : 'item-support'
-                },
-                support,
-                idx < item.supports.length - 1 ? React.createElement('span', null, '', React.createElement('br')) : ''
-              ),
-              )
-            )
-          )
-          )
-        );
+            'span',
+            null,
+            'Supports: ',
+            React.createElement('br')
+          ),
+          ...item.supports.map((support, idx) => {
+            console.log('Support for item', item.id, ':', support);
+            return React.createElement(
+          'strong',
+          { 
+            key: idx, 
+            className: support === '{{PHONE_NAMENOSPACE}}' ? 'item-support-current' : 'item-support'
+          },
+          support,
+          idx < item.supports.length - 1 ? React.createElement('span', null, '', React.createElement('br')) : ''
+            );
+          })
+        )
+          );
+        })
+      );
     }
     console.log('Current Phone: {{PHONE_NAME}}')
 
@@ -161,6 +179,21 @@ function transitionBoxActivate(link) {
    window.location.href = link;
  }, 600);
 }
+function scrollToHash(hash) {
+  const target = document.querySelector(hash);
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start'});
+  }
+}
+
+// Example: when you click your sidebar items
+document.querySelectorAll('.sidebar-select').forEach(el => {
+  el.addEventListener('click', (e) => {
+    const hash = el.getAttribute('data-hash'); // we’ll use data-hash instead of onclick
+    history.pushState(null, '', hash);        // updates the URL without jumping
+    scrollToHash(hash);
+  });
+});
   </script>
 </body>
 </html>

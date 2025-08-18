@@ -44,6 +44,7 @@ def stream_items():
             for line in f:
                 yield line
                 time.sleep(0.09)
+                print(line)
     return Response(generate(), mimetype='application/x-ndjson')
 
 @app.route('/Phone<phone_id>')

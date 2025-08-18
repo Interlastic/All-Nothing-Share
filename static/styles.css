@@ -589,7 +589,7 @@ body {
   height: 70px;
   top: -10px;
   position: fixed;
-  background-image: linear-gradient(to bottom, rgba(202, 18, 18, 0.062), rgba(201, 18, 18, 0.61));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.637), rgba(201, 18, 18, 0.61));
   z-index: 99999;
   border-radius: 10px;
   backdrop-filter: blur(10px);
@@ -697,4 +697,98 @@ body {
 }
 .dropdown-content a:hover {
  color: rgb(166, 160, 255);
+}
+
+.sidebar {
+  width: 110px;
+  height: 30vh;
+  position: fixed;
+  top: 35vh;
+  left: 100%;
+  transform: translateX(-20%);
+  background-color: rgb(255, 240, 240);
+  border-radius: 10px;
+  transition: 
+    transform 0.3s ease-out 0s,   /* no delay when collapsing */
+    height 0.3s ease-out 0.2s,    /* delay for height when collapsing */
+    top 0.3s ease-out 0.2s,      /* delay for top when collapsing */
+    background-color 0.5s ease-out;
+    z-index: 1000000;
+  backdrop-filter: blur(10px);
+}
+
+.sidebar:hover {
+  transform: translateX(-100%);
+  height: 90vh;
+  top: 5vh;
+  transition-delay: 
+    0.2s,  /* delay for transform when expanding */
+    0s,    /* no delay for height when expanding */
+    0s;    /* no delay for top when expanding */
+  background-color: #ffffff00;
+}
+
+.sidebar-arrow {
+  background-image: url('/static/arrow.svg');
+  background-size: contain; /* make it scale to fit the element */
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 30px;   /* set a size */
+  height: 100%;
+  position: absolute;
+  transform: rotate(180deg); /* rotate the arrow */
+  filter: drop-shadow(0 0 1px black) drop-shadow(0 0 1px black);
+  opacity: 1;
+  transition: opacity 0.3s ease-out 0.2s;
+}
+
+.sidebar:hover .sidebar-arrow {
+  opacity: 0;
+}
+
+.sidebar-content {
+  padding: 10px;
+}
+
+.sidebar-select {
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    height: 30%;
+    background-color: #d71921;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center; /* horizontal centering */
+    align-items: center;     /* vertical centering */
+    opacity: 0;
+    transition: opacity 0.3s ease-out 0.2s;
+}
+
+.sidebar-select-text {
+    transform: rotate(90deg);
+    font-family: 'nfont', sans-serif;
+    font-size: 30px;
+    color: white;
+    transition: color 0.3s ease-out;
+}
+
+
+.sidebar:hover .sidebar-select {
+  opacity: 1;
+}
+
+.sidebar-select:hover .sidebar-select-text {
+  color: black;
+}
+
+/* disable scrollbar, needs the whole page encompassed by div .wrapper*/
+.wrapper {
+  height: 100vh;
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.wrapper::-webkit-scrollbar {
+  width: 0px; /* Chrome/Safari */
+  background: transparent;
 }
