@@ -86,13 +86,12 @@
           .catch(console.error);
       }, []);
 
-      console.log('Rendering ItemsList, items:', items);
+      
 
       return React.createElement(
         'div',
         { className: 'item-container' },
         items.map(item => {
-          console.log('Rendering item:', item);
           return React.createElement(
         'div',
         { key: item.id, className: 'item-card', id: item.type },
@@ -130,7 +129,6 @@
             React.createElement('br')
           ),
           ...item.supports.map((support, idx) => {
-            console.log('Support for item', item.id, ':', support);
             return React.createElement(
           'strong',
           { 
